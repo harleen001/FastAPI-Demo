@@ -8,10 +8,11 @@ def greet():
     return "Welcome to fast api project"
 
 products=[
-    Products(1,"phone","budget phone",99,10),
-    Products(2,"laptop","gaming laptop",999,6)
+    Products(id=1,name="phone", description= "budget phone", price= 99, quantity=10),
+    Products(id=2,name="laptop", description= "powerful laptop",price= 999, quantity=30),
+    Products(id=3,name="Pen", description= "blue ink pen", price= 9, quantity=100),
 ]
 
 @app.get("/products")
 def get_all_products():
-    return "all products"      
+    return products      
