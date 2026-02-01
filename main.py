@@ -19,4 +19,12 @@ def get_all_products():
 
 @app.get("/product/{id}")
 def get_product_by_id(id:int):
-    return products[id]
+    for product in products:
+        if product.id==id:
+            return product
+        return "Product not avaiable"
+
+@app.post("/product")  #adding a product here
+def add_product(product: Products ):
+    products.append(product)
+    return product   #post doesnt get checked on browser either use swagger/postman or react app as its checked on forms
