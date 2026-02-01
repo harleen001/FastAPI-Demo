@@ -16,3 +16,7 @@ products=[
 @app.get("/products")
 def get_all_products():
     return products      
+
+@app.get("/product/{id}")
+def get_product_by_id(id:int):
+    return products[id]
