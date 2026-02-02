@@ -28,3 +28,21 @@ def get_product_by_id(id:int):
 def add_product(product: Products ):
     products.append(product)
     return product   #post doesnt get checked on browser either use swagger/postman or react app as its checked on forms
+
+
+@app.patch("/product")
+def update_product(id:int, product:Products):
+    for i in range(len(products)):
+        if products[i].id == id:
+            products[i]=product
+            return "Product added successfully"
+    return "Product not found"
+    
+@app.delete("/product")
+def delete_product(id:int):
+    for i in range(len(products)):
+        if products[i].id==id:
+            del products[i]
+            return "Product deleted successfully"
+    
+    return "No such Product exist"
